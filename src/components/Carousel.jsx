@@ -1,4 +1,3 @@
-import "react-responsive-carousel/lib/styles/carousel.min.css"
 import "./Carousel.css"
 import { useState, useEffect } from 'react';
 import momAndDad from '../assets/momAndDad.jpg'
@@ -14,6 +13,7 @@ const ImageCarousel = () => {
   const [direction, setDirection] = useState('next'); 
   const [hovering, setHovering] = useState(false)
   const [animating, setAnimating] = useState(false);
+  const [startX, setStartX] = useState(null);
 
   useEffect(() => {
     if (hovering || animating) return;
@@ -53,7 +53,30 @@ const ImageCarousel = () => {
   return (
     <div className="custom-carousel"       
     onMouseEnter={() => setHovering(true)}
-    onMouseLeave={() => setHovering(false)}>
+    onMouseLeave={() => setHovering(false)}
+    onMouseDown={(e) => setStartX(e.clientX)}
+    onMouseUp={(e) => {
+        if (startX === null) return;
+        const endX = e.clientX;
+        const deltaX = startX - endX;
+
+        if (deltaX > 50) goToNext();     // swipe left
+        else if (deltaX < -50) goToPrev(); // swipe right
+
+        setStartX(null);
+    }}
+    onTouchStart={(e) => setStartX(e.touches[0].clientX)}
+    onTouchEnd={(e) => {
+        if (startX === null) return;
+        const endX = e.changedTouches[0].clientX;
+        const deltaX = startX - endX;
+
+        if (deltaX > 50) goToNext();     // swipe left
+        else if (deltaX < -50) goToPrev(); // swipe right
+
+        setStartX(null);
+    }}
+    >
     <div className="carousel-inner">
       <div
         className={`carousel-slide ${
@@ -64,6 +87,7 @@ const ImageCarousel = () => {
           src={images[currentIndex]}
           alt={`Slide ${currentIndex + 1}`}
           className="carousel-image"
+          draggable = "false"
         />
         <div className="caption">{captions[currentIndex]}</div>
       </div>

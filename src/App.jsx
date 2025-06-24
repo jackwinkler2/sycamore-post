@@ -12,10 +12,12 @@ import Events from './pages/Events/Events'
 import Resources from './pages/Resources/Resources'
 import stackOfBooks from './assets/stackofbooks.webp'
 import ImageCarousel from './components/Carousel.jsx'
+import ScrollToTop from './components/ScrollToTop';
 
 function App() {
   return (
     <Router>
+      <ScrollToTop />
       <Navbar />
       <Routes>
         <Route path="/about/sycamore-post" element={<SycamorePost />} />

@@ -5,6 +5,7 @@
   padding: 0;
   background-color: aqua;
   font-family: sans-serif;
+  padding-bottom: 100px;
 }
 
 body {
@@ -17,6 +18,10 @@ body {
 
 html {
   scroll-behavior: smooth;
+}
+
+#Books, #About, #Events, #Resources {
+  scroll-margin-top: 70px;
 }
 
 a.header-buttons{
@@ -32,6 +37,12 @@ a.header-buttons{
   text-align: center;
   width: auto;
   min-width: 80px;
+  transition: transform 0.2s ease, color 0.2s ease;
+}
+
+.header-buttons:hover{
+  color: green;
+  transform: scale(1.15); 
 }
 
 .books-image{
