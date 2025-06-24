@@ -10,7 +10,8 @@ import Book2 from './pages/Books/Book2'
 import Books from './pages/Books/Books'
 import Events from './pages/Events/Events'
 import Resources from './pages/Resources/Resources'
-import stackOfBooks from './assets/stackofbooks.webp';
+import stackOfBooks from './assets/stackofbooks.webp'
+import ImageCarousel from './components/Carousel.jsx'
 
 function App() {
   return (
@@ -31,6 +32,7 @@ function App() {
           element={
             <>
               <h1>Sycamore Post</h1>
+              <ImageCarousel/>
               <section id="About">
                 <Link to="/about/sycamore-post" className="header-buttons">
                   About

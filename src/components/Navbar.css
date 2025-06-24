@@ -1,19 +1,25 @@
 .navbar {
   display: grid;
-  grid-template-columns: repeat(5, 1fr);
+  grid-template-columns: repeat(6, 1fr);
   background-color: #19670a;
-  padding: 5px 0;
+  padding: 10px 0px;
   text-align: center;
+  position: fixed;
+  top: 0;
+  z-index:1000;
+  width: 100%;
 }
 
 .dropbtn {
   background-color: transparent;
   color: white;
   font-size: 16px;
-  padding: 14px 16px;
+  padding: 14px 5px;
   border: none;
   cursor: pointer;
   width: 100%;
+  vertical-align: middle;
+  display: inline-block;
 }
 
 .dropdown {
@@ -27,7 +33,7 @@
   background-color: green;
   min-width: 160px;
   z-index: 1001;
-  box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2);
+  box-shadow: 0px 8px 16px rgba(141, 78, 20, 0.4);
 }
 
 .dropdown-content a {
@@ -43,5 +49,5 @@
 }
 
 .dropdown:hover .dropbtn {
-  background-color: #555;
+  background-color: #56341a;
 }

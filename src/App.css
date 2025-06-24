@@ -12,6 +12,11 @@ body {
   padding: 0;
   text-align: center;
   overflow-x: hidden;
+  padding-top: 60px;
+}
+
+html {
+  scroll-behavior: smooth;
 }
 
 a.header-buttons{
@@ -36,6 +41,11 @@ a.header-buttons{
   height: auto;
   max-height: 450px;
   margin: 10px auto 0 auto;
+}
+
+.logo-image{
+  max-width: 50px;
+  max-height: 40px;
 }
 
 @media (max-width: 600px) {

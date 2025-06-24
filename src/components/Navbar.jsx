@@ -5,6 +5,11 @@ const Navbar = () => {
     return(
         <div>
             <nav className = "navbar">
+
+                <Link to="/" className="logo-link">
+                  <img src="/stick.png" alt="Home Logo" className="logo-image" />
+                </Link>
+
                 <Dropdown title="About" titleHref="#About">
                     <Link to="/about/sycamore-post">Sycamore Post</Link>
                     <Link to="/about/tiffany">Tiffany Winkler</Link>
@@ -16,7 +21,7 @@ const Navbar = () => {
                 </Dropdown>
                 <Dropdown title="Events" titleHref="#Events">
                 </Dropdown>
-                <Dropdown title="Resources" titleHref="Resources">
+                <Dropdown title="Resources" titleHref="#Resources">
                 </Dropdown>
                 <button>
                     Shop
@@ -28,16 +33,30 @@ const Navbar = () => {
 }
 
 const Dropdown = ({ title, titleHref, children }) => {
+  let titleElement;
+
+  if (titleHref) {
+    titleElement = (
+      <a href={titleHref} className="dropbtn">
+        {title}
+      </a>
+    );
+  } else {
+    titleElement = (
+      <span className="dropbtn">
+        {title}
+      </span>
+    );
+  }
+
   return (
     <div className="dropdown">
-      <button className="dropbtn" href={titleHref}>
-        {title}
-      </button>
+      {titleElement}
       <div className="dropdown-content">
         {children}
       </div>
     </div>
-  )
-}
+  );
+};
 
 export default Navbar
